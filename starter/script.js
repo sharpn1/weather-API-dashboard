@@ -7,7 +7,7 @@ searchButton.addEventListener("click", getCityCoordinates);
 // API key for openweathermap
 var API_KEY = "f2eb18881281555f09869f2032b44d6c"; 
 
-//HTML for the main weather card
+// Function to create the weather card
 function createWeatherCard(cityName, weatherItem, index) {
     console.log(weatherItem, "this is the weather item")
     if(index === 0) {
@@ -34,6 +34,7 @@ function createWeatherCard(cityName, weatherItem, index) {
                 </div>`;     
 }}
 
+// Function to fetch weather data
 function getWeatherDetails(cityName, lat, lon) {
     var WEATHER_API_URL = `http://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${API_KEY}`; 
 
@@ -46,27 +47,28 @@ console.log(data, "this is get weather details")
 for (index = 0; index < fiveDayForcast.length; index++) {
     weatherItem = fiveDayForcast[index];
     if ((index === 0)) {
-      currentWeatherDiv.insertAdjacentHTML(
-        "beforeend",
-        createWeatherCard(cityName, weatherItem, index)
+      currentWeatherDiv.insertAdjacentHTML("beforeend", createWeatherCard(cityName, weatherItem, index)
       );
     } else {
-      weatherCardsDiv.insertAdjacentHTML(
-        "beforeend",
-        createWeatherCard(cityName, weatherItem, index)
+      weatherCardsDiv.insertAdjacentHTML("beforeend", createWeatherCard(cityName, weatherItem, index)
       );
     }
   }
     }).catch(() => {
-        alert("ERROR!");
+        alert("An error occurred while fetching weather data.");
     });
-
-
 }
 
 // Function to handle search input
 function getCityCoordinates(e){
-    e.preventDefault()
+    e.preventDefault();
+    // var cityName = $(".form-input").val();
+    // searchedCities.push(city);
+    // localStorage.setItem("cities", JSON.stringify(searchedCities));
+    // $("#searchHistory").append(`<div class="selected">${city}</div>`);
+    // $(".form-input").val("");
+    // getWeather(city);
+}
 
    
     var cityName = "london"
@@ -85,7 +87,7 @@ function getCityCoordinates(e){
         alert("ERROR!");
     });
     console.log(cityName)
-}
+
 
 // Function to display search history
 var searchedCities = JSON.parse(localStorage.getItem("cities")) || [];
