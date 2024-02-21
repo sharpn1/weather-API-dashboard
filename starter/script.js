@@ -57,31 +57,31 @@ function getWeatherDetails(cityName, lat, lon) {
         }
     }).catch(() => {
         alert("An error occurred while fetching weather data.");
-       
+
     });
 }
 
 //retreave weather information form the API's
 function getWeather(cityName) {
-var GEOCODING_API_URL = `http://api.openweathermap.org/geo/1.0/direct?q=${cityName}&limit=1&appid=${API_KEY}`;
+    var GEOCODING_API_URL = `http://api.openweathermap.org/geo/1.0/direct?q=${cityName}&limit=1&appid=${API_KEY}`;
 
-fetch(GEOCODING_API_URL).then(res => res.json()).then(data => {
-    console.log(data, "this is get city coordinates")
-    if (!data.length) return alert(`ERROR! No information found for ${cityName}`);
-    var { name, lat, lon } = data[0];
-    getWeatherDetails(name, lat, lon);
-    console.log(data)
-}).catch(() => {
-    alert("ERROR!");
-    cityName("London");
-});
-console.log(cityName)
+    fetch(GEOCODING_API_URL).then(res => res.json()).then(data => {
+        console.log(data, "this is get city coordinates")
+        if (!data.length) return alert(`ERROR! No information found for ${cityName}`);
+        var { name, lat, lon } = data[0];
+        getWeatherDetails(name, lat, lon);
+        console.log(data)
+    }).catch(() => {
+        alert("ERROR!");
+        cityName("London");
+    });
+    console.log(cityName)
 }
 
 // Function to handle search input
 function getCityCoordinates(e) {
     e.preventDefault();
-    var city= $(".form-input").val();
+    var city = $(".form-input").val();
     searchedCities.push(city);
     localStorage.setItem("cities", JSON.stringify(searchedCities));
     $("#searchHistory").append(`<div class="selected">${city}</div>`);
@@ -96,7 +96,7 @@ function searchHistory() {
     searchedCities.forEach(city => {
         $("#searchHistory").append(`<div class="selected">${city}</div>`);
     });
-    
+
     // Call searchHistory function when the dashboard page loads
     searchHistory();
     console.log(city, "this is search history")
