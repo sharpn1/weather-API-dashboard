@@ -36,6 +36,9 @@ After installing the project, open your web browser and navigate to (https://sha
 - Search History: Each city entered by the user is stored in the search history. Clicking on a city in the search history brings up its current and future weather conditions.
 
 ## Screenshot
+![image](https://github.com/sharpn1/weather-API-dashboard/assets/152098466/bd632e52-6568-4a0b-86d8-2f099b5a8f34) ![image](https://github.com/sharpn1/weather-API-dashboard/assets/152098466/b46f8ca8-0abe-4fd7-b4c5-213f35054275) ![image](https://github.com/sharpn1/weather-API-dashboard/assets/152098466/1f940bf2-dd29-44c8-a8ee-5d78c075f8f9)
+
+
 
 
 ## Built With
